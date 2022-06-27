@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[template.environment]
+  REACT_APP_ENDPOINT = "https://pishty.uk/v1"
+  REACT_APP_PROJECT = "62b8c10849c92ee641d8"
+  REACT_APP_COLLECTION_ID = "62b8c380c5e1e8d92357"
