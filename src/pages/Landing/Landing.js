@@ -11,7 +11,7 @@ const Landing = () => {
     <>
       <section className="container h-screen mx-auto flex">
         <div className="flex flex-col mx-auto justify-center p-6 text-center">
-          <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">Introducing</p>
+          <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">Introducing 🤲🏾</p>
           <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold">cakeCrm</h1>
           <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">
           Get to know your customer
