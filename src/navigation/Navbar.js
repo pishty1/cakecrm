@@ -135,8 +135,7 @@ const Navbar = ({dispatch}) => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="/"
+                          <span
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -144,8 +143,8 @@ const Navbar = ({dispatch}) => {
                             onClick={handleLogout}
                           >
                             Sign out
-                          </a>
-                        )}
+                            </span>
+                          )}
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
