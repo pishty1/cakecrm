@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../../api/api";
 import SignUp from "./SignUp";
 import { FetchState } from "../../hooks";
+import {Redirect} from "react-router-dom";
 
 const Login = ({ dispatch }) => {
   const [email, setEmail] = useState();
@@ -21,19 +22,18 @@ const Login = ({ dispatch }) => {
   };
 
   return register ? (
-    <SignUp setRegister={setRegister} dispatch={dispatch} />
+    <Redirect to="/" />
   ) : (
     <section className="container h-screen mx-auto flex">
       <div className="flex-grow flex flex-col max-w-xl justify-center p-6">
         <h1 className="text-6xl font-bold">Login</h1>
         <p className="mt-6">
           {" "}
-          Don't have an account ?{" "}
           <span
             className="cursor-pointer underline"
             onClick={() => setRegister(true)}
           >
-            Sign Up
+             Home page
           </span>{" "}
         </p>
         <form onSubmit={handleLogin}>

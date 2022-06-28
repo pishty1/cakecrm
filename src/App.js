@@ -3,6 +3,7 @@ import Todo from "./pages/Todo/Todo";
 import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import { useGetUser } from "./hooks";
+import Navbar from "./navigation/Navbar";
 
 function App() {
   // eslint-disable-next-line
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      {user ? <Navbar /> : ""}
       <Switch>
         <Route path="/todos">
           {user ? <Todo user={user} dispatch={dispatch} /> : <Redirect to="/login" />}
