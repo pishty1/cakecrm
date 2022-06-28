@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../api/api";
-import { FetchState, useGetTodos } from "../../hooks";
+import {useGetTodos } from "../../hooks";
 import { Server } from "../../utils/config";
 import Alert from "../Alert/Alert";
 import TodoItem from "./TodoItem";
@@ -30,17 +30,6 @@ const Todo = ({ user, dispatch }) => {
       console.log("Error in adding todo " + e);
     }
   };
-
-
-  const handleLogout = async (e) => {
-    dispatch({ type: FetchState.FETCH_INIT });
-    try {
-      await api.deleteCurrentSession();
-      dispatch({ type: FetchState.FETCH_SUCCESS, payload: null });
-    } catch (e) {
-      dispatch({ type: FetchState.FETCH_FAILURE });
-    }
-  }
 
   return (
     <>

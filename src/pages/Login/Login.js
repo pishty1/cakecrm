@@ -1,6 +1,5 @@
 import { useState } from "react";
 import api from "../../api/api";
-import SignUp from "./SignUp";
 import { FetchState } from "../../hooks";
 import {Redirect} from "react-router-dom";
 
