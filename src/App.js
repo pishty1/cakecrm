@@ -11,7 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {user ? <Navbar /> : ""}
+      {user ? <Navbar dispatch={dispatch}/> : ""}
       <Switch>
         <Route path="/todos">
           {user ? <Todo user={user} dispatch={dispatch} /> : <Redirect to="/login" />}

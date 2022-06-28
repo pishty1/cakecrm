@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { FetchState, useGetTodos } from "../hooks";
+import api from "../api/api";
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
@@ -8,12 +10,22 @@ const navigation = [
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
+const Navbar = ({dispatch}) => {
+  
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+  
+  const handleLogout = async (e) => {
+    dispatch({ type: FetchState.FETCH_INIT });
+    try {
+      await api.deleteCurrentSession();
+      dispatch({ type: FetchState.FETCH_SUCCESS, payload: null });
+    } catch (e) {
+      dispatch({ type: FetchState.FETCH_FAILURE });
+    }
+  }
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Navbar() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -129,6 +141,7 @@ export default function Navbar() {
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
+                            onClick={handleLogout}
                           >
                             Sign out
                           </a>
@@ -165,4 +178,7 @@ export default function Navbar() {
       )}
     </Disclosure>
   );
+
 }
+
+export default Navbar;
