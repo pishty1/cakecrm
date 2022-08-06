@@ -1,4 +1,4 @@
-import { appwrite, github, twitter, react } from "../icons";
+import { appwrite, github, twitter} from "../icons";
 import { useHistory } from "react-router-dom";
 
 const Landing = () => {
