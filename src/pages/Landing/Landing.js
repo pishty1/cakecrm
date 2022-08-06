@@ -1,3 +1,4 @@
+import { appwrite, github, twitter, react } from "../icons";
 import { useHistory } from "react-router-dom";
 
 const Landing = () => {
@@ -6,6 +7,21 @@ const Landing = () => {
   const handleClick = () => {
     history.push("/todos");
   };
+
+  const links = [
+    {
+      href: "http://github.com/appwrite/appwrite",
+      icon: github(10),
+    },
+    {
+      href: "https://twitter.com/appwrite_io",
+      icon: twitter(10),
+    },
+    {
+      href: "http://appwrite.io",
+      icon: appwrite(10),
+    },
+  ];
 
   return (
     <>
@@ -23,6 +39,14 @@ const Landing = () => {
             Login
           </button>
         </div>
+      </section>
+
+      <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8 flex">
+        {links.map((item, key) => (
+          <div key={key} className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
+            <a href={item["href"]}>{item["icon"]}</a>
+          </div>
+        ))}
       </section>
     </>
   );

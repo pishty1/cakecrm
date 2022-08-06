@@ -12,6 +12,7 @@ const Todo = ({ user, dispatch }) => {
 
   const handleAddTodo = async (e) => {
     e.preventDefault();
+    console.log("Adding Todo");
     const data = {
       content: currentTodo,
       isComplete: false,
@@ -27,7 +28,7 @@ const Todo = ({ user, dispatch }) => {
       setStale({ stale: true });
       setCurrentTodo("");
     } catch (e) {
-      console.log("Error in adding todo " + e);
+      console.log("Error in adding todo");
     }
   };
 
